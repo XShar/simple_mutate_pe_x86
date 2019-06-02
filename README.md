@@ -46,19 +46,33 @@
 Смотрит опкоды дата секции, если он известны движку, то заменяет их оригиналами, пример кода:
 
 if (inBuf[i] == 0x55)
+
 			if (inBuf[i + 1] == 0x8B)
+			
 				if (inBuf[i + 2] == 0xEC)
+				
 					if (inBuf[i + 3] == 0x83) // add esp, -x
+					
 						if (inBuf[i + 4] == 0xC4)
+						
 							if (((char)inBuf[i + 5] <= 0) && (inBuf[i + 5] != 0x80)) // -128 sux
+							
 								if (rand() % 2 || MutAll)
+								
 								{
+								
 									inBuf[i] = 0xC8;
+									
 									inBuf[i + 1] = -inBuf[i + 5];
+									
 									inBuf[i + 2] = 0;
+									
 									inBuf[i + 3] = 0;
+									
 									inBuf[i + 4] = 0x90;
+									
 									inBuf[i + 5] = 0x90;
+									
 									++MutationCount;
 
 								}
